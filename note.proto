@@ -1,0 +1,16 @@
+syntax = "proto3";
+message EmailDetails {
+    string id = 1;
+    string nome = 2;
+    string email = 3;
+}
+service EmailService {
+    rpc RetrieveEmail (Empty) returns (EmailList) {}
+    rpc AddNewEmail (EmailDetails) returns (EmailDetails) {}
+    rpc UpdateEmailDetails (EmailDetails) returns (EmailDetails) {}
+}
+message Empty {}
+
+message EmailList {
+   repeated EmailDetails emails = 1;
+}
